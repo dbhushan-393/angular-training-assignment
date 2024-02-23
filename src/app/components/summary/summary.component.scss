@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.summary-title {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0 10px;
+}
+
+th {
+  font-weight: bold;
+}
+
+.total-cost {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 7px 0;
+}

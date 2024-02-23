@@ -1,0 +1,34 @@
+<h1>Step 2: Select your Config and Options</h1>
+<div class="config-selection">
+  <form [formGroup]="configForm">
+    <mat-form-field>
+      <mat-label>Config</mat-label>
+      <mat-select id="configSelect" formControlName="config" (selectionChange)="onConfigSelection()">
+        <mat-option value="">Choose...</mat-option>
+        <mat-option *ngFor="let config of configData?.configs" [value]="config.id">
+          {{ config.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-container *ngIf="configData">
+      <div class="config-details" *ngIf="selectConfiguration">
+        <p>
+          <span>Range</span><span>{{ selectConfiguration.range }} mi</span>
+        </p>
+        <p>
+          <span>Top Speed</span><span>{{ selectConfiguration.speed }} mph</span>
+        </p>
+        <p>
+          <span>Cost</span><span>{{ selectConfiguration.price | currency: 'USD' }}</span>
+        </p>
+      </div>
+      <mat-checkbox *ngIf="configData?.towHitch" id="includeTow" formControlName="twitch"
+        (change)="towHitchSelection($event)">
+        Tow Hitch Package
+      </mat-checkbox>
+      <mat-checkbox *ngIf="configData?.yoke" id="includeYoke" formControlName="yoke" (change)="yokeSelection($event)">
+        Yoke Steering Wheel
+      </mat-checkbox>
+    </ng-container>
+  </form>
+</div>

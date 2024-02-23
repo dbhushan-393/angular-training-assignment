@@ -1,0 +1,29 @@
+<h1>Step 1: Choose your Model and Color</h1>
+<div class="model-selector">
+  <form [formGroup]="modelSelectorForm" class="model-selector">
+    <mat-form-field>
+    <mat-label>Model</mat-label>
+    <mat-select id="modelSelect"
+    formControlName="modelCode"
+    (selectionChange)="onModalSelection()"
+  >
+  <mat-option value="">Choose...</mat-option>
+  <mat-option *ngFor="let element of modalData" [value]="element.code">
+    {{ element.description }}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+  <mat-form-field *ngIf="this.modelSelectorForm?.controls?.['modelCode']?.value">
+    <mat-label>Color</mat-label>
+    <mat-select
+    id="colorSelect"
+    formControlName="modelColor"
+    (selectionChange)="onColorCodeSelection()"
+  >
+    <mat-option *ngFor="let element of colorData" [value]="element.code">
+      {{ element.description }}
+    </mat-option>
+  </mat-select>
+  </mat-form-field>
+  </form>
+</div>

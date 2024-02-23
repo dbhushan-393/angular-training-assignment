@@ -1,0 +1,3 @@
+<ng-container *ngIf="color$ | async">
+  <img class="image-url" [src]="imageUrl$ | async" [alt]="color$ | async">
+</ng-container>

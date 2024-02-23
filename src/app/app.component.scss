@@ -1,0 +1,21 @@
+:host {
+    display: block;
+  }
+  
+  .router-links {
+    width: 100%;
+    display: flex;
+  
+    >li {
+      flex: 1;
+    }
+  
+    button :disabled{
+        cursor: not-allowed;
+    }
+    
+  }
+  ol {
+    list-style: none;
+  }
+  

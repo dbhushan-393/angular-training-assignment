@@ -1,0 +1,22 @@
+@use '@angular/material' as material;
+
+@include material.core();
+
+$color: (
+  primary: material.define-palette(material.$indigo-palette),
+  accent: material.define-palette(material.$blue-palette),
+  warn: material.define-palette(material.$red-palette),
+);
+
+$material-config-color: (
+  color: $color,
+  density: 0,
+);
+
+$tesla-color: material.define-light-theme($material-config-color);
+
+@include material.core-theme($tesla-color);
+@include material.form-field-theme($tesla-color);
+@include material.select-theme($tesla-color);
+@include material.checkbox-theme($tesla-color);
+@include material.button-theme($tesla-color);

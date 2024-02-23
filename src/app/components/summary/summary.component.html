@@ -1,0 +1,40 @@
+<hgroup>
+  <h1>Step 3: Summary</h1>
+  <ng-container *ngIf="modelSelected$ | async as model">
+  <p class="summary-title">Your Tesla {{ model.description }}</p>
+</ng-container>
+</hgroup>
+<table>
+  <tbody>
+  <ng-container *ngIf="configSelected$ | async as config">
+    <tr>
+      <th>{{ config.description }}</th>
+      <td>{{ config.price | currency:'USD' }}</td>
+    </tr>
+    <tr>
+      <td>Range: {{ config.range }} mi - Top Speed: {{ config.speed }} mph</td>
+      <td></td>
+    </tr>
+  </ng-container>
+<ng-container *ngIf="colorSelected$ | async as color">
+    <tr>
+      <th>{{ color.description }}</th>
+      <td>{{ color.price | currency:'USD' }}</td>
+    </tr>
+  </ng-container>
+    <tr *ngIf="towHitch$ | async ">
+      <th>Tow Hitch Package</th>
+      <td>{{ ADDITIONAL_COST | currency:'USD' }}</td>
+    </tr>
+    <tr *ngIf="yoke$ | async">
+      <th>Yoke Steering Wheel</th>
+      <td>{{ ADDITIONAL_COST | currency:'USD' }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th class="total-cost">TOTAL COST</th>
+      <td class="total-cost">{{ totalCost$ | async | currency:'USD' }}</td>
+    </tr>
+  </tfoot>
+</table>
